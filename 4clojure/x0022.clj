@@ -4,9 +4,9 @@
 ; -
 ; Restrictions: count
 
-(require 'clojure.test)
+(use 'clojure.test)
 
-(def f
+(def my-count
   (fn [s]
       (loop [xs s
              i 0]
@@ -18,12 +18,12 @@
 
 
 ; tests
-(clojure.test/is (= (f '(4 5 6 7) 2) 6))
+(is (= (my-count '(1 2 3 3 1)) 5))
 
-(clojure.test/is (= (f [:a :b :c] 0) :a))
+(is (= (my-count "Hello World") 11))
 
-(clojure.test/is (= (f [1 2 3 4] 1) 2))
+(is (= (my-count [[1 2] [3 4] [5 6]]) 3))
 
-(clojure.test/is (= (f '([1 2] [3 4] [5 6]) 2) [5 6]))
+(is (= (my-count '(13)) 1))
 
-(prn "Well done! :)")
+(is (= (my-count '(:a :b :c)) 3))
