@@ -4,7 +4,7 @@
 ; -
 ; Restrictions: nth
 
-(require 'clojure.test)
+(use 'clojure.test)
 
 (def f
   (fn [s x]
@@ -14,12 +14,10 @@
 
 
 ; tests
-(clojure.test/is (= (f '(4 5 6 7) 2) 6))
+(is (= (f '(4 5 6 7) 2) 6))
 
-(clojure.test/is (= (f [:a :b :c] 0) :a))
+(is (= (f [:a :b :c] 0) :a))
 
-(clojure.test/is (= (f [1 2 3 4] 1) 2))
+(is (= (f [1 2 3 4] 1) 2))
 
-(clojure.test/is (= (f '([1 2] [3 4] [5 6]) 2) [5 6]))
-
-(prn "Well done! :)")
+(is (= (f '([1 2] [3 4] [5 6]) 2) [5 6]))
