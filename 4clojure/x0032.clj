@@ -1,20 +1,20 @@
-; #32
+; #33
 ;'Difficulty:	Easy
 ;Topics:	seqs
 
-
-; Write a function which duplicates each element of a sequence.
+; Write a function which packs consecutive duplicates into sub-lists.
 ; -
 
 (use 'clojure.test)
 
-(def duplicate
-  (fn [sq] (interleave sq sq)
+(def pack (fn
+  [sq]
+
 ))
 
 ; tests
-(is (= (duplicate [1 2 3]) '(1 1 2 2 3 3)))
+(is (= (pack [1 1 2 1 1 1 3 3]) '((1 1) (2) (1 1 1) (3 3))))
 
-(is (= (duplicate [:a :a :b :b]) '(:a :a :a :a :b :b :b :b)))
+(is (= (pack [:a :a :b :b :c]) '((:a :a) (:b :b) (:c))))
 
-(is (= (duplicate [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4])))
+(is (= (pack [[1 2] [1 2] [3 4]]) '(([1 2] [1 2]) ([3 4]))))
